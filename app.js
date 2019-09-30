@@ -2,7 +2,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+// connecting to database:
+require('./app_api/models/db')
+// delete them later
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 

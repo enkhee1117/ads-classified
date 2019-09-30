@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // Setting up database
-mongoose.connect('mongodb://localhost/Loc8r', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/ads', {useNewUrlParser: true});
 // Monitoring connection
 mongoose.connection.on('connected', () => {
     console.log("Mongoose connected");
@@ -15,4 +15,4 @@ mongoose.connection.on('disconnected', () => {
 });
 
 // Connecting Schemas
-// require('./locations');
+require('./user');
