@@ -22,7 +22,7 @@ app.set('view engine','ejs');
 app.set('views',__dirname + '/views')
 // static file
 app.use(express.static(path.join(__dirname, 'public')));
-// passport needs to be initialized after static routes
+// --------------passport needs to be initialized after static routes-----------------//
 app.use(passport.initialize());
 // access control headers
 app.use('/api', (req, res, next) => {
