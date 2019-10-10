@@ -41,4 +41,4 @@ return jwt.sign({
 }, process.env.JWT_SECRET);
 };
   
-  mongoose.model('User', userSchema);
+mongoose.model('User', userSchema);

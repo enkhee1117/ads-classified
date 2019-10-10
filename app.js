@@ -10,7 +10,7 @@ require('./app_api/models/db')
 // requiring strategy which has be after database
 require('./app_api/config/passport');
 // routers
-var apiRouter = require('./app_api/routes/index');
+var userRouter = require('./app_api/routes/user');
 
 var app = express();
 app.use(logger('dev'));
@@ -21,7 +21,8 @@ app.use(cookieParser());
 app.set('view engine','ejs');
 app.set('views',__dirname + '/views')
 // static file
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'public/dist/public')));
 // --------------passport needs to be initialized after static routes-----------------//
 app.use(passport.initialize());
 // access control headers
@@ -31,6 +32,6 @@ app.use('/api', (req, res, next) => {
     next();
 });
 // routes
-app.use('/', apiRouter);
+app.use('/user', userRouter);
 
 module.exports = app;
