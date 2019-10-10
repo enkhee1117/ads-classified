@@ -2,6 +2,16 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
+const adSchema = new mongoose.Schema({
+    category: {
+        type: String,
+        required: true
+    },
+    text: {
+        type: String,
+        required: true
+    }
+},{timestamps: true})
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -12,9 +22,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    ads: [adSchema],
     hash: String,
-    salt: String
-})
+    salt: String,
+},{timestamps: true})
 
 userSchema.methods.setPassword = function (password) {
     this.salt = crypto.randomBytes(16).toString('hex');
@@ -41,4 +52,5 @@ return jwt.sign({
 }, process.env.JWT_SECRET);
 };
   
+mongoose.model('Ad',adSchema);
 mongoose.model('User', userSchema);

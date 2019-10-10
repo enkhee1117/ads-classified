@@ -11,6 +11,7 @@ require('./app_api/models/db')
 require('./app_api/config/passport');
 // routers
 var userRouter = require('./app_api/routes/user');
+var adRouter = require('./app_api/routes/ad');
 
 var app = express();
 app.use(logger('dev'));
@@ -33,5 +34,6 @@ app.use('/api', (req, res, next) => {
 });
 // routes
 app.use('/user', userRouter);
+app.use('/ad', adRouter);
 
 module.exports = app;

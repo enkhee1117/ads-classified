@@ -8,7 +8,7 @@ import {HttpService} from '../../services/http.service';
 })
 export class FrameComponent implements OnInit {
 
-  constructor(private _httpService: HttpService) { }
+  constructor() { }
 
   ngOnInit() {
   }
