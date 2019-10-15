@@ -7,10 +7,18 @@ import {HttpService} from '../../services/http.service';
   styleUrls: ['./frame.component.css']
 })
 export class FrameComponent implements OnInit {
-
-  constructor() { }
+  ads: any;
+  constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
+    this.getAds();
   }
-
+  getAds() {
+    const observable = this._httpService.getAds();
+    observable.subscribe(data => {
+      console.log(data);
+      this.ads = data;
+      return this.ads;
+    });
+  }
 }

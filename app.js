@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public/dist/public')));
 // --------------passport needs to be initialized after static routes-----------------//
 app.use(passport.initialize());
 // access control headers
-app.use('/api', (req, res, next) => {
+app.use('/ad', (req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     next();
