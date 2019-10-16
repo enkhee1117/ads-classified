@@ -1,7 +1,30 @@
 <h1>Frame html</h1>
-<p>{{ads | json}}</p>
+
+<!-- <p>{{ads | json}}</p> -->
 
 
 <p *ngFor="let ad of ads">
-    {{ad.text}}
+    {{ad.text}} -- <button (click)="selectAd(ad)">Look at this ad</button>
 </p>
+
+<button (click)="click()">Click me yo!</button>
+
+<form (submit)="newAd()">
+    <p>{{newAdForm | json}}</p>
+    <input type="text" name="category" [(ngModel)]="newAdForm.category">
+    <input type="text" name="text" [(ngModel)]="newAdForm.text">
+    <input type="submit" value="Create new Ad">
+</form>
+
+<app-ad-delete *ngIf="selectedAd" [adToDelete]="selectedAd"></app-ad-delete>
+
+
+<a [routerLink]="['/login']">Render Login Component</a> <br>
+<a [routerLink]="['/frame']">Render frame Component</a>
+
+<h1>Nested routes!</h1>
+<a [routerLink]="['body']">Body</a><br>
+<a [routerLink]="['header']">Header</a><br>
+<a [routerLink]="['footer']">Footer</a>
+
+<router-outlet></router-outlet>
